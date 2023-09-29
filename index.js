@@ -53,8 +53,8 @@ try {
 })
 
 
-// sequelize.sync().then(() => {
+sequelize.sync().then(() => {
     app.listen(PORT, () => {
         console.log(`Serveur running sur le port: http://localhost:${PORT}`);
     })
-// })
+})
