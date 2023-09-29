@@ -16,14 +16,14 @@ const db = mysql.createConnection({
     database: config.DB_NAME
 });
 
+app.use('/', (req, res) => {
+    res.send('Mandeha');
+})
 
 db.connect((err) => {
     if (err) {
         console.log("Connection to the database failed!");
     } else {
-        app.use('/', (req, res) => {
-            res.send('Mandeha');
-        })
         console.log("Connected to the database!");
     }
 });
