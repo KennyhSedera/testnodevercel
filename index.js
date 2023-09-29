@@ -42,19 +42,21 @@ const sequelize = new Sequelize(
 //     }
 // });
 
-app.use('/', (req, res) => {
-    // res.send('mandeha')
 try {
     sequelize.authenticate()
     res.send('Connection a la base de donnees avec succees !');
 } catch (err) {
     res.send('error');
 }
+
+app.use('/', (req, res) => {
+    // res.send('mandeha')
+    sequelize.sync().then(() => {
+    res.send('ok')
+})
 })
 
 
-sequelize.sync().then(() => {
     app.listen(PORT, () => {
         console.log(`Serveur running sur le port: http://localhost:${PORT}`);
     })
-})
