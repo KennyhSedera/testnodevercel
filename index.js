@@ -25,14 +25,13 @@ db.connect((err) => {
 });
 
 app.use('/', (req, res) => {
-    const sql = "SELECT * FROM menu";
-    db.query(sql,(err, data) => {
-        if(err) {
+     const sql = "SELECT * FROM `menu`"
+    db.query(sql, (err, result) => {
+        if (err) {
             return res.send(err);
-        }else {
-            return res.send(data);
         }
-    })
+        return res.send(result);
+    });
 })
 
 
