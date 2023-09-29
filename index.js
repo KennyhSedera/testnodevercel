@@ -16,17 +16,6 @@ const db = mysql.createConnection({
     database: config.DB_NAME
 });
 
-app.use('/', (req, res) => {
-    const sql = "SELECT * FROM menu";
-    db.query(sql,(err, data) => {
-        if(err) {
-            return res.send("Error");
-        }else {
-            return res.send(data);
-        }
-    })
-})
-
 db.connect((err) => {
     if (err) {
         console.log("Connection to the database failed!");
@@ -35,6 +24,18 @@ db.connect((err) => {
     }
 });
 
-app.listen(2000, ()=>{
-    console.log('server running');
+app.use('/', (req, res) => {
+    const sql = "SELECT * FROM menu";
+    db.query(sql,(err, data) => {
+        if(err) {
+            return res.send(err);
+        }else {
+            return res.send(data);
+        }
+    })
+})
+
+
+app.listen(2000, (req, res)=>{
+    res.send('server running');
 })
