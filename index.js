@@ -17,7 +17,14 @@ const db = mysql.createConnection({
 });
 
 app.use('/', (req, res) => {
-    res.send('Mandeha');
+    const sql = "SELECT * FROM menu";
+    db.query(sql,(err, data) => {
+        if(err) {
+            return res.send("Error");
+        }else {
+            return res.send(data);
+        }
+    })
 })
 
 db.connect((err) => {
