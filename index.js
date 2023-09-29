@@ -43,13 +43,13 @@ const sequelize = new Sequelize(
 // });
 
 app.use('/', (req, res) => {
-    res.send('mandeha')
-// try {
-//     sequelize.authenticate()
-//     res.send('Connection a la base de donnees avec succees !');
-// } catch (err) {
-//     res.send('error');
-// }
+    // res.send('mandeha')
+try {
+    sequelize.authenticate()
+    res.send('Connection a la base de donnees avec succees !');
+} catch (err) {
+    res.send('error');
+}
 })
 
 
