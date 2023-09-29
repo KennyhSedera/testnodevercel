@@ -48,15 +48,9 @@ try {
 //     }
 // });
 
-// app.use('/', (req, res) => {
-//      const sql = "SELECT * FROM `menu`"
-//     db.query(sql, (err, result) => {
-//         if (err) {
-//             return res.send(err);
-//         }
-//         return res.send(result);
-//     });
-// })
+app.use('/', (req, res) => {
+    res.send('Mandeha');
+})
 
 
 sequelize.sync().then(() => {
