@@ -25,12 +25,6 @@ const sequelize = new Sequelize(
 
 // initialize();
 
-try {
-    sequelize.authenticate()
-    console.log('Connection a la base de donnees avec succees !');
-} catch (err) {
-    console.log('error');
-}
 
 
 // const db = mysql.createConnection({
@@ -49,12 +43,17 @@ try {
 // });
 
 app.use('/', (req, res) => {
-    res.send('Mandeha');
+try {
+    sequelize.authenticate()
+    res.send('Connection a la base de donnees avec succees !');
+} catch (err) {
+    res.send('error');
+}
 })
 
 
-sequelize.sync().then(() => {
-    app.listen(PORT, () => {
-        console.log(`Serveur running sur le port: http://localhost:${PORT}`);
-    })
-})
+// sequelize.sync().then(() => {
+//     app.listen(PORT, () => {
+//         console.log(`Serveur running sur le port: http://localhost:${PORT}`);
+//     })
+// })
