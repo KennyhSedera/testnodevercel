@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.use('/', () => {
-    console.log('Mandeha');
+app.use('/', (req, res) => {
+    res.send('Mandeha');
 })
 
 app.listen(2000, ()=>{
