@@ -54,7 +54,7 @@ app.use('/', (req, res) => {
 
 
 // sequelize.sync().then(() => {
-//     app.listen(PORT, () => {
-//         console.log(`Serveur running sur le port: http://localhost:${PORT}`);
-//     })
+    app.listen(PORT, () => {
+        console.log(`Serveur running sur le port: http://localhost:${PORT}`);
+    })
 // })
